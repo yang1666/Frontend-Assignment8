@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+<body>
+  <div class="container" ng-controller="NarrowItDownController as ctrl">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+    <div class="search">
+      <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.searchTerm">
+      <div class="narrow-button">
+        <button class="btn btn-primary" ng-click="ctrl.narrowDown()">Narrow It Down For Me!</button>
+      </div>
+    </div>
+    <br><br><br>
+    <p>Items found: {{ ctrl.found.length }}</p>
+    <found-items found-items="ctrl.found" on-remove="ctrl.removeItem(index)"></found-items>
+  </div>
+</body>
+</html>
